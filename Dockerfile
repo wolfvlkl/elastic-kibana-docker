@@ -2,7 +2,7 @@ FROM openjdk:jre-alpine
 
 LABEL build=vlkl
 
-ARG version
+ARG version=6.2.2
 
 RUN apk add -q --no-progress --no-cache nodejs wget curl tar && \
     adduser -D elastic 
