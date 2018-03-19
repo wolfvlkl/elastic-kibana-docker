@@ -4,7 +4,7 @@ LABEL build=vlkl
 
 ARG version
 
-RUN apk add -q --no-progress --no-cache nodejs wget curl && \
+RUN apk add -q --no-progress --no-cache nodejs wget curl tar && \
     adduser -D elastic 
 
 USER elastic 
