@@ -13,8 +13,9 @@ WORKDIR /home/elastic
 
 ENV ES_TMPDIR=/home/elastic/elasticsearch.tmp 
 
-RUN wget -q -O - https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}.tar.gz | tar -zx && \
-    mv elasticsearch-${version} elasticsearch && \
+RUN curl -s -L "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-${version}.tar.gz"
+RUN tar -xzvf elasticsearch-${version}.tar.gz
+RUN mv elasticsearch-${version} elasticsearch && \
     wget -q -O - https://artifacts.elastic.co/downloads/kibana/kibana-${version}-linux-x86_64.tar.gz | tar -zx && \
     mv kibana-${version}-linux-x86_64 kibana && \
     mkdir -p ${ES_TMPDIR} && \
